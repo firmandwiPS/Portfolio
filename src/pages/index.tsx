@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import Profile from "../components/Profile";
 import Footer from "../components/Footer";
-// import About from "../components/";
+import MySkill from "../components/Skill";
 
 
 export default function Home() {
@@ -11,6 +11,9 @@ export default function Home() {
       <Navbar/>
 
       <Profile/>
+
+
+      <MySkill/>
 
       <Footer/>
       
