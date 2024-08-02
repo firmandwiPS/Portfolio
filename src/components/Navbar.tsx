@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link as ScrollLink } from 'react-scroll';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,21 +34,29 @@ export default function Navbar() {
           </a>
         </div>
         <div className="hidden md:flex space-x-4">
-          <a
-            href="#about"
+          <ScrollLink to="About" smooth duration={1000}>
+          <button
             className="text-gray-300 hover:text-white transition">
             About
-          </a>
-          <a
-            href="#projects"
+          </button>
+          </ScrollLink>
+          <ScrollLink to="Projects" smooth duration={1000}>
+          <button
             className="text-gray-300 hover:text-white transition">
             Projects
-          </a>
-          <a
-            href="#contact"
+          </button>
+          </ScrollLink>
+          
+          <ScrollLink to="contact" smooth duration={1800}>
+           <button
+            href="/contact"
             className="text-gray-300 hover:text-white transition">
             Contact
-          </a>
+          </button> 
+          </ScrollLink>
+          
+          
+          
         </div>
         <div className="md:hidden">
           <a onClick={toggleMenu} className="text-white focus:outline-none">
@@ -66,25 +75,30 @@ export default function Navbar() {
           </a>
         </div>
       </div>
-      {isOpen && (
-        <div className="md:hidden mt-4 space-y-2">
-          <a
-            href="#about"
-            className="block text-gray-300 hover:text-white transition">
-            About
-          </a>
-          <a
-            href="#projects"
-            className="block text-gray-300 hover:text-white transition">
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className="block text-gray-300 hover:text-white transition">
-            Contact
-          </a>
-        </div>
-      )}
+      <div className={`md:hidden mt-2 space-y-2 transition-all duration-500 ${isOpen ? "opacity-100 max-h-screen" : "opacity-0 max-h-0 overflow-hidden"}`}>
+      <ScrollLink to="About" smooth duration={1000}>
+        <button
+          className="block text-gray-300 hover:text-white transition mt-2">
+          About
+        </button>
+        </ScrollLink>
+
+        <ScrollLink to="Projects" smooth duration={1000}>
+        <button
+          className="block text-gray-300 hover:text-white transition mt-2">
+          Projects
+        </button>
+        </ScrollLink>
+
+        <ScrollLink to="contact" smooth duration={1800}>
+        <button
+          href="#contact"
+          className="block text-gray-300 hover:text-white transition mt-2">
+          Contact
+        </button>  
+        </ScrollLink>
+        
+      </div>
     </nav>
   );
 }
